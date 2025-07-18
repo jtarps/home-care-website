@@ -11,60 +11,58 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-brand-primary text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold text-blue-400">
-              Toronto Home Care
-            </h3>
-            <p className="text-gray-300">
+            <h3 className="text-xl font-bold text-white">Haven at Home</h3>
+            <p className="text-white/80">
               Providing compassionate, professional home care services
               throughout Toronto and the GTA.
             </p>
             <div className="flex space-x-4">
-              <Facebook className="h-5 w-5 text-gray-400 hover:text-blue-400 cursor-pointer" />
-              <Twitter className="h-5 w-5 text-gray-400 hover:text-blue-400 cursor-pointer" />
-              <Instagram className="h-5 w-5 text-gray-400 hover:text-blue-400 cursor-pointer" />
-              <Linkedin className="h-5 w-5 text-gray-400 hover:text-blue-400 cursor-pointer" />
+              <Facebook className="h-5 w-5 text-white/60 hover:text-white cursor-pointer" />
+              <Twitter className="h-5 w-5 text-white/60 hover:text-white cursor-pointer" />
+              <Instagram className="h-5 w-5 text-white/60 hover:text-white cursor-pointer" />
+              <Linkedin className="h-5 w-5 text-white/60 hover:text-white cursor-pointer" />
             </div>
           </div>
 
           {/* Services */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Services</h4>
+            <h4 className="text-lg font-semibold mb-4 text-white">Services</h4>
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/services/psw"
-                  className="text-gray-300 hover:text-white transition-colors"
+                  href="/services/personal-support"
+                  className="text-white/80 hover:text-white transition-colors"
                 >
-                  Personal Support Worker
+                  Personal Support
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/services/nursing"
-                  className="text-gray-300 hover:text-white transition-colors"
+                  href="/services/in-home-nursing"
+                  className="text-white/80 hover:text-white transition-colors"
                 >
-                  Nursing Care
+                  In-Home Nursing
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/services/physiotherapy"
-                  className="text-gray-300 hover:text-white transition-colors"
+                  href="/services/rehabilitation"
+                  className="text-white/80 hover:text-white transition-colors"
                 >
-                  Physiotherapy
+                  Rehabilitation
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/costs-insurance"
-                  className="text-gray-300 hover:text-white transition-colors"
+                  href="/services/specialty-chronic-care"
+                  className="text-white/80 hover:text-white transition-colors"
                 >
-                  Cost & Insurance
+                  Specialty Care
                 </Link>
               </li>
             </ul>
@@ -72,12 +70,12 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Company</h4>
+            <h4 className="text-lg font-semibold mb-4 text-white">Company</h4>
             <ul className="space-y-2">
               <li>
                 <Link
                   href="/about"
-                  className="text-gray-300 hover:text-white transition-colors"
+                  className="text-white/80 hover:text-white transition-colors"
                 >
                   About Us
                 </Link>
@@ -85,7 +83,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/caregivers"
-                  className="text-gray-300 hover:text-white transition-colors"
+                  className="text-white/80 hover:text-white transition-colors"
                 >
                   Join Our Team
                 </Link>
@@ -93,7 +91,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/partners"
-                  className="text-gray-300 hover:text-white transition-colors"
+                  className="text-white/80 hover:text-white transition-colors"
                 >
                   Partner With Us
                 </Link>
@@ -101,7 +99,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/faqs"
-                  className="text-gray-300 hover:text-white transition-colors"
+                  className="text-white/80 hover:text-white transition-colors"
                 >
                   FAQs
                 </Link>
@@ -109,7 +107,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/policies"
-                  className="text-gray-300 hover:text-white transition-colors"
+                  className="text-white/80 hover:text-white transition-colors"
                 >
                   Policies
                 </Link>
@@ -119,24 +117,24 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Contact</h4>
+            <h4 className="text-lg font-semibold mb-4 text-white">Contact</h4>
             <div className="space-y-3">
               <div className="flex items-center">
-                <Phone className="h-4 w-4 mr-2 text-blue-400" />
-                <span className="text-gray-300">(416) 555-CARE</span>
+                <Phone className="h-4 w-4 mr-2 text-white" />
+                <span className="text-white/80">(416) 555-2273</span>
               </div>
               <div className="flex items-center">
-                <Mail className="h-4 w-4 mr-2 text-blue-400" />
+                <Mail className="h-4 w-4 mr-2 text-white" />
                 <a
-                  href="mailto:info@torontohomecare.ca"
-                  className="text-gray-300 hover:underline"
+                  href="mailto:info@havenathome.com"
+                  className="text-white/80 hover:underline"
                 >
-                  info@torontohomecare.ca
+                  info@havenathome.com
                 </a>
               </div>
               <div className="flex items-start">
-                <MapPin className="h-4 w-4 mr-2 text-blue-400 mt-1" />
-                <span className="text-gray-300">
+                <MapPin className="h-4 w-4 mr-2 text-white mt-1" />
+                <span className="text-white/80">
                   123 Main Street
                   <br />
                   Toronto, ON M5V 3A8
@@ -146,9 +144,9 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-          <p className="text-gray-400">
-            © 2024 Toronto Home Care. All rights reserved. |
+        <div className="border-t border-white/20 mt-8 pt-8 text-center">
+          <p className="text-white/60">
+            © 2024 Haven at Home. All rights reserved. |
             <Link href="/policies" className="hover:text-white ml-1">
               Privacy Policy
             </Link>{" "}

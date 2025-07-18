@@ -1,6 +1,14 @@
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Heart, CheckCircle, Clock, Users, Award } from "lucide-react"
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Heart, CheckCircle, Clock, Users, Award } from "lucide-react";
+import CTASection from "@/components/cta-section";
+import Footer from "@/components/footer";
 
 export default function PSWPage() {
   return (
@@ -14,8 +22,8 @@ export default function PSWPage() {
               Personal Support Worker (PSW) Services
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Compassionate personal care and daily living assistance to help you maintain independence and dignity in
-              your own home.
+              Compassionate personal care and daily living assistance to help
+              you maintain independence and dignity in your own home.
             </p>
           </div>
         </div>
@@ -32,41 +40,53 @@ export default function PSWPage() {
                   <CheckCircle className="h-6 w-6 text-green-500 mr-3 mt-1" />
                   <div>
                     <h3 className="font-semibold">Personal Care</h3>
-                    <p className="text-gray-600">Bathing, grooming, dressing, and toileting assistance</p>
+                    <p className="text-gray-600">
+                      Bathing, grooming, dressing, and toileting assistance
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="h-6 w-6 text-green-500 mr-3 mt-1" />
                   <div>
                     <h3 className="font-semibold">Meal Support</h3>
-                    <p className="text-gray-600">Meal planning, preparation, and feeding assistance</p>
+                    <p className="text-gray-600">
+                      Meal planning, preparation, and feeding assistance
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="h-6 w-6 text-green-500 mr-3 mt-1" />
                   <div>
                     <h3 className="font-semibold">Mobility Assistance</h3>
-                    <p className="text-gray-600">Help with walking, transfers, and positioning</p>
+                    <p className="text-gray-600">
+                      Help with walking, transfers, and positioning
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="h-6 w-6 text-green-500 mr-3 mt-1" />
                   <div>
                     <h3 className="font-semibold">Companionship</h3>
-                    <p className="text-gray-600">Social interaction, conversation, and emotional support</p>
+                    <p className="text-gray-600">
+                      Social interaction, conversation, and emotional support
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="h-6 w-6 text-green-500 mr-3 mt-1" />
                   <div>
                     <h3 className="font-semibold">Light Housekeeping</h3>
-                    <p className="text-gray-600">Cleaning, laundry, and maintaining a safe environment</p>
+                    <p className="text-gray-600">
+                      Cleaning, laundry, and maintaining a safe environment
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
             <div className="bg-gray-50 p-8 rounded-lg">
-              <h3 className="text-2xl font-bold mb-6">Why Choose Our PSW Services?</h3>
+              <h3 className="text-2xl font-bold mb-6">
+                Why Choose Our PSW Services?
+              </h3>
               <div className="space-y-4">
                 <div className="flex items-center">
                   <Award className="h-6 w-6 text-blue-500 mr-3" />
@@ -93,12 +113,16 @@ export default function PSWPage() {
       {/* Service Levels */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-12">PSW Service Levels</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">
+            PSW Service Levels
+          </h2>
           <div className="grid md:grid-cols-3 gap-8">
             <Card>
               <CardHeader>
                 <CardTitle>Companion Care</CardTitle>
-                <CardDescription>Light assistance and companionship</CardDescription>
+                <CardDescription>
+                  Light assistance and companionship
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2 text-sm">
@@ -116,7 +140,9 @@ export default function PSWPage() {
             <Card className="border-2 border-blue-200">
               <CardHeader>
                 <CardTitle>Personal Care</CardTitle>
-                <CardDescription>Comprehensive daily living support</CardDescription>
+                <CardDescription>
+                  Comprehensive daily living support
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2 text-sm">
@@ -128,14 +154,18 @@ export default function PSWPage() {
                 </ul>
                 <div className="mt-4 text-center">
                   <p className="text-2xl font-bold text-blue-600">$35-40/hr</p>
-                  <span className="text-sm text-green-600 font-medium">Most Popular</span>
+                  <span className="text-sm text-green-600 font-medium">
+                    Most Popular
+                  </span>
                 </div>
               </CardContent>
             </Card>
             <Card>
               <CardHeader>
                 <CardTitle>Specialized Care</CardTitle>
-                <CardDescription>Advanced support for complex needs</CardDescription>
+                <CardDescription>
+                  Advanced support for complex needs
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2 text-sm">
@@ -155,22 +185,16 @@ export default function PSWPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Get Started?</h2>
-          <p className="text-xl text-gray-600 mb-8">
-            Contact us today for a free consultation to discuss your PSW care needs.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
-              Request PSW Care
-            </Button>
-            <Button variant="outline" size="lg">
-              Schedule Consultation
-            </Button>
-          </div>
-        </div>
-      </section>
+      <CTASection
+        title="Ready to Get Started?"
+        subtitle="Contact us today for a free consultation to discuss your PSW care needs."
+        primaryButtonText="Request PSW Care"
+        secondaryButtonText="Schedule Consultation"
+        showSubtitle={true}
+      />
+
+      {/* Footer */}
+      <Footer />
     </div>
-  )
+  );
 }

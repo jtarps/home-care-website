@@ -23,6 +23,13 @@ import {
   CheckCircle,
   ArrowLeft,
   ArrowRight,
+  Phone,
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+  Mail,
+  MapPin,
 } from "lucide-react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
@@ -538,8 +545,8 @@ export default function BookingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50">
+      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
@@ -620,6 +627,190 @@ export default function BookingPage() {
           </div>
         </div>
       </div>
+
+      {/* CTA Section */}
+      <section className="relative py-24 bg-gradient-to-b from-brand-background to-brand-primary">
+        <div className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">
+          {/* Centered CTA Card */}
+          <div className="max-w-4xl mx-auto">
+            <Card className="bg-white shadow-2xl border-0">
+              <CardContent className="p-12 text-center">
+                <h2 className="text-4xl md:text-5xl font-extrabold text-brand-text mb-6">
+                  Ready to Get Started?
+                </h2>
+                <p className="text-xl text-brand-textSecondary mb-10 max-w-3xl mx-auto">
+                  Contact us today to discuss your care needs and learn how we can support you and your family.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+                  <Link href="/contact" className="inline-block">
+                    <div className="bg-brand-primary text-white hover:bg-brand-primary/90 font-bold py-5 px-12 rounded-full shadow-xl hover:shadow-2xl transform hover:scale-[1.03] transition-all duration-200 cursor-pointer flex items-center justify-center text-lg md:text-xl gap-2">
+                      Contact Us
+                      <span className="inline-block animate-bounce ml-2">
+                        <ArrowRight className="h-6 w-6" />
+                      </span>
+                    </div>
+                  </Link>
+                  <a href="tel:+14165552273" className="inline-block">
+                    <div className="border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white bg-transparent font-bold py-5 px-12 rounded-full shadow-xl hover:shadow-2xl transform hover:scale-[1.03] transition-all duration-200 cursor-pointer flex items-center justify-center text-lg md:text-xl">
+                      <Phone className="h-6 w-6 mr-2" />
+                      Call (416) 555-2273
+                    </div>
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Gradient Footer Section */}
+      <section className="bg-gradient-to-b from-brand-primary via-brand-primary/95 to-brand-primary/90 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="grid md:grid-cols-4 gap-8">
+            {/* Company Info */}
+            <div className="space-y-4">
+              <h3 className="text-xl font-bold text-white">Haven at Home</h3>
+              <p className="text-white/80">
+                Providing compassionate, professional home care services
+                throughout Toronto and the GTA.
+              </p>
+              <div className="flex space-x-4">
+                <Facebook className="h-5 w-5 text-white/60 hover:text-white cursor-pointer" />
+                <Twitter className="h-5 w-5 text-white/60 hover:text-white cursor-pointer" />
+                <Instagram className="h-5 w-5 text-white/60 hover:text-white cursor-pointer" />
+                <Linkedin className="h-5 w-5 text-white/60 hover:text-white cursor-pointer" />
+              </div>
+            </div>
+
+            {/* Services */}
+            <div>
+              <h4 className="text-lg font-semibold mb-4 text-white">Services</h4>
+              <ul className="space-y-2">
+                <li>
+                  <Link
+                    href="/services/personal-support"
+                    className="text-white/80 hover:text-white transition-colors"
+                  >
+                    Personal Support
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/services/in-home-nursing"
+                    className="text-white/80 hover:text-white transition-colors"
+                  >
+                    In-Home Nursing
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/services/rehabilitation"
+                    className="text-white/80 hover:text-white transition-colors"
+                  >
+                    Rehabilitation
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/services/specialty-chronic-care"
+                    className="text-white/80 hover:text-white transition-colors"
+                  >
+                    Specialty Care
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Company */}
+            <div>
+              <h4 className="text-lg font-semibold mb-4 text-white">Company</h4>
+              <ul className="space-y-2">
+                <li>
+                  <Link
+                    href="/about"
+                    className="text-white/80 hover:text-white transition-colors"
+                  >
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/caregivers"
+                    className="text-white/80 hover:text-white transition-colors"
+                  >
+                    Join Our Team
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/partners"
+                    className="text-white/80 hover:text-white transition-colors"
+                  >
+                    Partner With Us
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/faqs"
+                    className="text-white/80 hover:text-white transition-colors"
+                  >
+                    FAQs
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/policies"
+                    className="text-white/80 hover:text-white transition-colors"
+                  >
+                    Policies
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Contact */}
+            <div>
+              <h4 className="text-lg font-semibold mb-4 text-white">Contact</h4>
+              <div className="space-y-3">
+                <div className="flex items-center">
+                  <Phone className="h-4 w-4 mr-2 text-white" />
+                  <span className="text-white/80">(416) 555-2273</span>
+                </div>
+                <div className="flex items-center">
+                  <Mail className="h-4 w-4 mr-2 text-white" />
+                  <a
+                    href="mailto:info@havenathome.com"
+                    className="text-white/80 hover:underline"
+                  >
+                    info@havenathome.com
+                  </a>
+                </div>
+                <div className="flex items-start">
+                  <MapPin className="h-4 w-4 mr-2 text-white mt-1" />
+                  <span className="text-white/80">
+                    123 Main Street
+                    <br />
+                    Toronto, ON M5V 3A8
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="border-t border-white/20 mt-8 pt-8 text-center">
+            <p className="text-white/60">
+              © 2024 Haven at Home. All rights reserved. |
+              <Link href="/policies" className="hover:text-white ml-1">
+                Privacy Policy
+              </Link>{" "}
+              |
+              <Link href="/policies" className="hover:text-white ml-1">
+                Terms of Service
+              </Link>
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

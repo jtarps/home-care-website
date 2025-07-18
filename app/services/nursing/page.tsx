@@ -1,6 +1,14 @@
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Shield, CheckCircle, Stethoscope, Heart, Activity } from "lucide-react"
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Shield,
+  CheckCircle,
+  Stethoscope,
+  Heart,
+  Activity,
+} from "lucide-react";
+import CTASection from "@/components/cta-section";
+import Footer from "@/components/footer";
 
 export default function NursingPage() {
   return (
@@ -10,10 +18,12 @@ export default function NursingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <Shield className="h-20 w-20 text-blue-500 mx-auto mb-6" />
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Professional Nursing Care</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Professional Nursing Care
+            </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Skilled nursing services delivered by registered and licensed practical nurses to support your health and
-              medical needs at home.
+              Skilled nursing services delivered by registered and licensed
+              practical nurses to support your health and medical needs at home.
             </p>
           </div>
         </div>
@@ -24,41 +34,57 @@ export default function NursingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold mb-6">Nursing Services We Provide</h2>
+              <h2 className="text-3xl font-bold mb-6">
+                Nursing Services We Provide
+              </h2>
               <div className="space-y-4">
                 <div className="flex items-start">
                   <CheckCircle className="h-6 w-6 text-green-500 mr-3 mt-1" />
                   <div>
                     <h3 className="font-semibold">Medication Management</h3>
-                    <p className="text-gray-600">Administration, monitoring, and education about medications</p>
+                    <p className="text-gray-600">
+                      Administration, monitoring, and education about
+                      medications
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="h-6 w-6 text-green-500 mr-3 mt-1" />
                   <div>
                     <h3 className="font-semibold">Wound Care</h3>
-                    <p className="text-gray-600">Dressing changes, wound assessment, and healing monitoring</p>
+                    <p className="text-gray-600">
+                      Dressing changes, wound assessment, and healing monitoring
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="h-6 w-6 text-green-500 mr-3 mt-1" />
                   <div>
                     <h3 className="font-semibold">Vital Signs Monitoring</h3>
-                    <p className="text-gray-600">Blood pressure, temperature, pulse, and oxygen monitoring</p>
+                    <p className="text-gray-600">
+                      Blood pressure, temperature, pulse, and oxygen monitoring
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="h-6 w-6 text-green-500 mr-3 mt-1" />
                   <div>
-                    <h3 className="font-semibold">Chronic Disease Management</h3>
-                    <p className="text-gray-600">Diabetes care, heart condition monitoring, and symptom management</p>
+                    <h3 className="font-semibold">
+                      Chronic Disease Management
+                    </h3>
+                    <p className="text-gray-600">
+                      Diabetes care, heart condition monitoring, and symptom
+                      management
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="h-6 w-6 text-green-500 mr-3 mt-1" />
                   <div>
                     <h3 className="font-semibold">Health Education</h3>
-                    <p className="text-gray-600">Teaching about conditions, medications, and self-care</p>
+                    <p className="text-gray-600">
+                      Teaching about conditions, medications, and self-care
+                    </p>
                   </div>
                 </div>
               </div>
@@ -91,7 +117,9 @@ export default function NursingPage() {
       {/* Specialized Care Areas */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-12">Specialized Nursing Care</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Specialized Nursing Care
+          </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Card>
               <CardHeader>
@@ -137,22 +165,16 @@ export default function NursingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-6">Need Professional Nursing Care?</h2>
-          <p className="text-xl text-gray-600 mb-8">
-            Our skilled nurses are ready to provide the medical care you need at home.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
-              Request Nursing Care
-            </Button>
-            <Button variant="outline" size="lg">
-              Speak with a Nurse
-            </Button>
-          </div>
-        </div>
-      </section>
+      <CTASection
+        title="Need Professional Nursing Care?"
+        subtitle="Our skilled nurses are ready to provide the medical care you need at home."
+        primaryButtonText="Request Nursing Care"
+        secondaryButtonText="Speak with a Nurse"
+        showSubtitle={true}
+      />
+
+      {/* Footer */}
+      <Footer />
     </div>
-  )
+  );
 }

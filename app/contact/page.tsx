@@ -11,10 +11,22 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  MessageCircle,
+  ArrowRight,
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+} from "lucide-react";
 import { useState } from "react";
 import { supabase } from "@/lib/supabase";
 import { toast } from "sonner";
+import Link from "next/link";
 
 export default function ContactPage() {
   const [form, setForm] = useState({
@@ -77,15 +89,15 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-brand-body">
       {/* Header */}
-      <section className="bg-gradient-to-br from-blue-50 to-green-50 py-20">
+      <section className="bg-brand-background py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-brand-text mb-6">
               Contact Us
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-brand-textSecondary max-w-3xl mx-auto">
               We're here to help. Reach out to us for care inquiries, questions,
               or to schedule a consultation.
             </p>
@@ -97,38 +109,38 @@ export default function ContactPage() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="text-center">
+            <Card className="text-center bg-white">
               <CardHeader>
-                <Phone className="h-12 w-12 text-blue-500 mx-auto mb-4" />
-                <CardTitle>Phone</CardTitle>
+                <Phone className="h-12 w-12 text-brand-primary mx-auto mb-4" />
+                <CardTitle className="text-brand-text">Phone</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-lg font-semibold text-gray-900">
-                  (416) 123-4567
+                <p className="text-lg font-semibold text-brand-text">
+                  (416) 555-2273
                 </p>
-                <p className="text-gray-600">24/7 Emergency Line</p>
-                <p className="text-sm text-gray-500 mt-2">
+                <p className="text-brand-textSecondary">24/7 Emergency Line</p>
+                <p className="text-sm text-brand-textSecondary mt-2">
                   For urgent care needs and emergencies
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="text-center">
+            <Card className="text-center bg-white">
               <CardHeader>
-                <Mail className="h-12 w-12 text-green-500 mx-auto mb-4" />
-                <CardTitle>Email</CardTitle>
+                <Mail className="h-12 w-12 text-brand-secondary mx-auto mb-4" />
+                <CardTitle className="text-brand-text">Email</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-lg font-semibold text-gray-900">
+                <p className="text-lg font-semibold text-brand-text">
                   <a
-                    href="mailto:info@torontohomecare.ca"
-                    className="hover:underline"
+                    href="mailto:info@havenathome.ca"
+                    className="hover:underline text-brand-primary"
                   >
-                    info@torontohomecare.ca
+                    info@havenathome.ca
                   </a>
                 </p>
-                <p className="text-gray-600">General Inquiries</p>
-                <p className="text-sm text-gray-500 mt-2">
+                <p className="text-brand-textSecondary">General Inquiries</p>
+                <p className="text-sm text-brand-textSecondary mt-2">
                   We respond within 24 hours
                 </p>
               </CardContent>
@@ -171,9 +183,9 @@ export default function ContactPage() {
 
       {/* Contact Form */}
       <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12">
-            <div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-3 gap-12">
+            <div className="lg:col-span-2">
               <h2 className="text-3xl font-bold mb-6">Send Us a Message</h2>
               <Card>
                 <CardHeader>
@@ -201,7 +213,7 @@ export default function ContactPage() {
                           <Label htmlFor="firstName">First Name</Label>
                           <Input
                             id="firstName"
-                            placeholder="Enter your first name"
+                            placeholder="John"
                             value={form.firstName}
                             onChange={handleChange}
                             required
@@ -211,69 +223,76 @@ export default function ContactPage() {
                           <Label htmlFor="lastName">Last Name</Label>
                           <Input
                             id="lastName"
-                            placeholder="Enter your last name"
+                            placeholder="Doe"
                             value={form.lastName}
                             onChange={handleChange}
                             required
                           />
                         </div>
                       </div>
-                      <div>
-                        <Label htmlFor="email">Email Address</Label>
-                        <Input
-                          id="email"
-                          type="email"
-                          placeholder="Enter your email"
-                          value={form.email}
-                          onChange={handleChange}
-                          required
-                        />
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <div>
+                          <Label htmlFor="email">Email</Label>
+                          <Input
+                            id="email"
+                            type="email"
+                            placeholder="john@example.com"
+                            value={form.email}
+                            onChange={handleChange}
+                            required
+                          />
+                        </div>
+                        <div>
+                          <Label htmlFor="phone">Phone</Label>
+                          <Input
+                            id="phone"
+                            type="tel"
+                            placeholder="(416) 555-0123"
+                            value={form.phone}
+                            onChange={handleChange}
+                            required
+                          />
+                        </div>
                       </div>
-                      <div>
-                        <Label htmlFor="phone">Phone Number</Label>
-                        <Input
-                          id="phone"
-                          placeholder="Enter your phone number"
-                          value={form.phone}
-                          onChange={handleChange}
-                        />
-                      </div>
-                      <div>
-                        <Label htmlFor="subject">Subject</Label>
-                        <select
-                          id="subject"
-                          className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                          value={form.subject}
-                          onChange={handleChange}
-                          required
-                        >
-                          <option value="">Select a subject</option>
-                          <option>Request Care Services</option>
-                          <option>General Information</option>
-                          <option>Billing Questions</option>
-                          <option>Caregiver Feedback</option>
-                          <option>Partnership Inquiry</option>
-                          <option>Complaint or Concern</option>
-                          <option>Other</option>
-                        </select>
-                      </div>
-                      <div>
-                        <Label htmlFor="urgency">Urgency Level</Label>
-                        <select
-                          id="urgency"
-                          className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                          value={form.urgency}
-                          onChange={handleChange}
-                          required
-                        >
-                          <option value="">Select urgency</option>
-                          <option>Urgent - Need immediate response</option>
-                          <option>High - Need response within 24 hours</option>
-                          <option>
-                            Normal - Response within 2-3 days is fine
-                          </option>
-                          <option>Low - No rush</option>
-                        </select>
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <div>
+                          <Label htmlFor="subject">Subject</Label>
+                          <select
+                            id="subject"
+                            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            value={form.subject}
+                            onChange={handleChange}
+                            required
+                          >
+                            <option value="">Select subject</option>
+                            <option>General Inquiry</option>
+                            <option>Care Services</option>
+                            <option>Billing & Insurance</option>
+                            <option>Employment</option>
+                            <option>Partnership</option>
+                            <option>Other</option>
+                          </select>
+                        </div>
+                        <div>
+                          <Label htmlFor="urgency">Urgency</Label>
+                          <select
+                            id="urgency"
+                            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            value={form.urgency}
+                            onChange={handleChange}
+                            required
+                          >
+                            <option value="">Select urgency</option>
+                            <option>Urgent - Need immediate response</option>
+                            <option>
+                              High - Need response within 24 hours
+                            </option>
+                            <option>
+                              Normal - Response within 2-3 days is fine
+                            </option>
+                            <option>Low - No rush</option>
+                          </select>
+                        </div>
                       </div>
                       <div>
                         <Label htmlFor="message">Message</Label>
@@ -313,7 +332,7 @@ export default function ContactPage() {
               </Card>
             </div>
 
-            <div>
+            <div className="lg:col-span-1">
               <h2 className="text-3xl font-bold mb-6">
                 Other Ways to Reach Us
               </h2>
@@ -379,61 +398,68 @@ export default function ContactPage() {
                     </div>
                   </CardContent>
                 </Card>
-
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Visit Our Office</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600 mb-4">
-                      We welcome in-person consultations by appointment. Our
-                      office is conveniently located in downtown Toronto with
-                      accessible parking.
-                    </p>
-                    <div className="space-y-2 text-sm">
-                      <p>
-                        <strong>Address:</strong> 123 Main Street, Suite 200,
-                        Toronto, ON M5V 3A8
-                      </p>
-                      <p>
-                        <strong>Parking:</strong> Underground parking available
-                      </p>
-                      <p>
-                        <strong>Transit:</strong> 2 minutes from Union Station
-                      </p>
-                      <p>
-                        <strong>Accessibility:</strong> Wheelchair accessible
-                        building
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Service Areas</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600 mb-2">
-                      We provide home care services throughout:
-                    </p>
-                    <ul className="text-sm text-gray-600 space-y-1">
-                      <li>• Toronto (all districts)</li>
-                      <li>• North York</li>
-                      <li>• Scarborough</li>
-                      <li>• Etobicoke</li>
-                      <li>• Mississauga</li>
-                      <li>• Brampton</li>
-                      <li>• Markham</li>
-                      <li>• Richmond Hill</li>
-                    </ul>
-                    <p className="text-sm text-gray-500 mt-2">
-                      Contact us to confirm service availability in your area.
-                    </p>
-                  </CardContent>
-                </Card>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Visit Our Office & Service Areas */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-8">
+            <Card>
+              <CardHeader>
+                <CardTitle>Visit Our Office</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 mb-4">
+                  We welcome in-person consultations by appointment. Our office
+                  is conveniently located in downtown Toronto with accessible
+                  parking.
+                </p>
+                <div className="space-y-2 text-sm">
+                  <p>
+                    <strong>Address:</strong> 123 Main Street, Suite 200,
+                    Toronto, ON M5V 3A8
+                  </p>
+                  <p>
+                    <strong>Parking:</strong> Underground parking available
+                  </p>
+                  <p>
+                    <strong>Transit:</strong> 2 minutes from Union Station
+                  </p>
+                  <p>
+                    <strong>Accessibility:</strong> Wheelchair accessible
+                    building
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Service Areas</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 mb-2">
+                  We provide home care services throughout:
+                </p>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• Toronto (all districts)</li>
+                  <li>• North York</li>
+                  <li>• Scarborough</li>
+                  <li>• Etobicoke</li>
+                  <li>• Mississauga</li>
+                  <li>• Brampton</li>
+                  <li>• Markham</li>
+                  <li>• Richmond Hill</li>
+                </ul>
+                <p className="text-sm text-gray-500 mt-2">
+                  Contact us to confirm service availability in your area.
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
@@ -452,6 +478,185 @@ export default function ContactPage() {
                 123 Main Street, Toronto, ON M5V 3A8
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="relative py-24 bg-gradient-to-b from-brand-background to-brand-primary">
+        <div className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">
+          {/* Centered CTA Card */}
+          <div className="max-w-4xl mx-auto">
+            <Card className="bg-white shadow-2xl border-0">
+              <CardContent className="p-12 text-center">
+                <h2 className="text-4xl md:text-5xl font-extrabold text-brand-text mb-6">
+                  Ready to Get Started?
+                </h2>
+                <p className="text-xl text-brand-textSecondary mb-10 max-w-3xl mx-auto">
+                  Contact us today to discuss your care needs and learn how we
+                  can support you and your family.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+                  <Link href="/book" className="inline-block">
+                    <div className="bg-brand-primary text-white hover:bg-brand-primary/90 font-bold py-5 px-12 rounded-full shadow-xl hover:shadow-2xl transform hover:scale-[1.03] transition-all duration-200 cursor-pointer flex items-center justify-center text-lg md:text-xl gap-2">
+                      Request Your Care Plan
+                      <span className="inline-block animate-bounce ml-2">
+                        <ArrowRight className="h-6 w-6" />
+                      </span>
+                    </div>
+                  </Link>
+                  <a href="tel:+14165552273" className="inline-block">
+                    <div className="border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white bg-transparent font-bold py-5 px-12 rounded-full shadow-xl hover:shadow-2xl transform hover:scale-[1.03] transition-all duration-200 cursor-pointer flex items-center justify-center text-lg md:text-xl">
+                      <Phone className="h-6 w-6 mr-2" />
+                      Call (416) 555-2273
+                    </div>
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Gradient Footer Section */}
+      <section className="bg-gradient-to-b from-brand-primary via-brand-primary/95 to-brand-primary/90 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="grid md:grid-cols-4 gap-8">
+            {/* Company Info */}
+            <div className="space-y-4">
+              <h3 className="text-xl font-bold text-white">Haven at Home</h3>
+              <p className="text-white/80">
+                Providing compassionate, professional home care services
+                throughout Toronto and the GTA.
+              </p>
+              <div className="flex space-x-4">
+                <Facebook className="h-5 w-5 text-white/60 hover:text-white cursor-pointer" />
+                <Twitter className="h-5 w-5 text-white/60 hover:text-white cursor-pointer" />
+                <Instagram className="h-5 w-5 text-white/60 hover:text-white cursor-pointer" />
+                <Linkedin className="h-5 w-5 text-white/60 hover:text-white cursor-pointer" />
+              </div>
+            </div>
+
+            {/* Services */}
+            <div>
+              <h4 className="text-lg font-semibold mb-4 text-white">
+                Services
+              </h4>
+              <ul className="space-y-2">
+                <li>
+                  <Link
+                    href="/services/personal-support"
+                    className="text-white/80 hover:text-white transition-colors"
+                  >
+                    Personal Support
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/services/in-home-nursing"
+                    className="text-white/80 hover:text-white transition-colors"
+                  >
+                    In-Home Nursing
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/services/rehabilitation"
+                    className="text-white/80 hover:text-white transition-colors"
+                  >
+                    Rehabilitation
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/services/specialty-chronic-care"
+                    className="text-white/80 hover:text-white transition-colors"
+                  >
+                    Specialty Care
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Company */}
+            <div>
+              <h4 className="text-lg font-semibold mb-4 text-white">Company</h4>
+              <ul className="space-y-2">
+                <li>
+                  <Link
+                    href="/about"
+                    className="text-white/80 hover:text-white transition-colors"
+                  >
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/caregivers"
+                    className="text-white/80 hover:text-white transition-colors"
+                  >
+                    Join Our Team
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/faqs"
+                    className="text-white/80 hover:text-white transition-colors"
+                  >
+                    FAQs
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/policies"
+                    className="text-white/80 hover:text-white transition-colors"
+                  >
+                    Policies
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Contact */}
+            <div>
+              <h4 className="text-lg font-semibold mb-4 text-white">Contact</h4>
+              <div className="space-y-3">
+                <div className="flex items-center">
+                  <Phone className="h-4 w-4 mr-2 text-white" />
+                  <span className="text-white/80">(416) 555-2273</span>
+                </div>
+                <div className="flex items-center">
+                  <Mail className="h-4 w-4 mr-2 text-white" />
+                  <a
+                    href="mailto:info@havenathome.com"
+                    className="text-white/80 hover:underline"
+                  >
+                    info@havenathome.com
+                  </a>
+                </div>
+                <div className="flex items-start">
+                  <MapPin className="h-4 w-4 mr-2 text-white mt-1" />
+                  <span className="text-white/80">
+                    123 Main Street
+                    <br />
+                    Toronto, ON M5V 3A8
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="border-t border-white/20 mt-8 pt-8 text-center">
+            <p className="text-white/60">
+              © 2024 Haven at Home. All rights reserved. |
+              <Link href="/policies" className="hover:text-white ml-1">
+                Privacy Policy
+              </Link>{" "}
+              |
+              <Link href="/policies" className="hover:text-white ml-1">
+                Terms of Service
+              </Link>
+            </p>
           </div>
         </div>
       </section>

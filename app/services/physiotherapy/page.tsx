@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Users, CheckCircle, Activity, Target, Zap } from "lucide-react"
+import CTASection from "@/components/cta-section"
+import Footer from "@/components/footer"
 
 export default function PhysiotherapyPage() {
   return (
@@ -137,22 +139,16 @@ export default function PhysiotherapyPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-6">Start Your Recovery Journey</h2>
-          <p className="text-xl text-gray-600 mb-8">
-            Our licensed physiotherapists are ready to help you regain mobility and reduce pain.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-green-600 hover:bg-green-700">
-              Book Physiotherapy
-            </Button>
-            <Button variant="outline" size="lg">
-              Free Assessment
-            </Button>
-          </div>
-        </div>
-      </section>
+      <CTASection 
+        title="Start Your Recovery Journey"
+        subtitle="Our licensed physiotherapists are ready to help you regain mobility and reduce pain."
+        primaryButtonText="Book Physiotherapy"
+        secondaryButtonText="Free Assessment"
+        showSubtitle={true}
+      />
+
+      {/* Footer */}
+      <Footer />
     </div>
   )
 }

@@ -26,9 +26,15 @@ import {
   ArrowRight,
   Phone,
   Mail,
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+  MapPin,
 } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 import { toast } from "sonner";
+import Link from "next/link";
 
 interface FormData {
   firstName: string;
@@ -205,15 +211,15 @@ export default function CaregiversPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-brand-body">
       {/* Hero Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-brand-background">
         <div className="max-w-7xl mx-auto">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-              Join Our <span className="text-blue-600">Caring Team</span>
+            <h1 className="text-4xl md:text-6xl font-bold text-brand-text mb-6">
+              Join Our <span className="text-brand-primary">Caring Team</span>
             </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-brand-textSecondary mb-8 max-w-3xl mx-auto">
               Make a meaningful difference in people's lives while building a
               rewarding career in home healthcare. We're looking for
               compassionate, dedicated caregivers to join our growing team.
@@ -221,18 +227,26 @@ export default function CaregiversPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3"
-                onClick={() => setShowForm(true)}
+                className="bg-brand-primary hover:bg-brand-primary/90 text-white px-8 py-3"
+                onClick={() => {
+                  setShowForm(true);
+                  // Scroll to form when it appears
+                  setTimeout(() => {
+                    document
+                      .getElementById("application-form")
+                      ?.scrollIntoView({ behavior: "smooth" });
+                  }, 100);
+                }}
               >
                 Apply Now <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 bg-transparent"
+                className="border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white px-8 py-3 bg-transparent"
               >
                 <Phone className="mr-2 h-5 w-5" />
-                Call Us: (555) 123-4567
+                Call Us: (416) 555-2273
               </Button>
             </div>
           </div>
@@ -243,10 +257,10 @@ export default function CaregiversPage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-brand-text mb-4">
               Why Choose Us?
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-brand-textSecondary max-w-2xl mx-auto">
               We believe in supporting our caregivers with competitive benefits,
               ongoing training, and a supportive work environment.
             </p>
@@ -254,49 +268,49 @@ export default function CaregiversPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <Heart className="h-8 w-8 text-blue-600" />
+              <div className="bg-brand-secondary/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <Heart className="h-8 w-8 text-brand-primary" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+              <h3 className="text-xl font-semibold text-brand-text mb-2">
                 Meaningful Work
               </h3>
-              <p className="text-gray-600">
+              <p className="text-brand-textSecondary">
                 Make a real difference in people's lives every day
               </p>
             </div>
 
             <div className="text-center">
-              <div className="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <Shield className="h-8 w-8 text-green-600" />
+              <div className="bg-brand-secondary/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <Shield className="h-8 w-8 text-brand-primary" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+              <h3 className="text-xl font-semibold text-brand-text mb-2">
                 Job Security
               </h3>
-              <p className="text-gray-600">
+              <p className="text-brand-textSecondary">
                 Growing industry with stable employment opportunities
               </p>
             </div>
 
             <div className="text-center">
-              <div className="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <Clock className="h-8 w-8 text-purple-600" />
+              <div className="bg-brand-secondary/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <Clock className="h-8 w-8 text-brand-primary" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+              <h3 className="text-xl font-semibold text-brand-text mb-2">
                 Flexible Schedule
               </h3>
-              <p className="text-gray-600">
+              <p className="text-brand-textSecondary">
                 Choose shifts that work with your lifestyle
               </p>
             </div>
 
             <div className="text-center">
-              <div className="bg-orange-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <Users className="h-8 w-8 text-orange-600" />
+              <div className="bg-brand-secondary/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <Users className="h-8 w-8 text-brand-primary" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+              <h3 className="text-xl font-semibold text-brand-text mb-2">
                 Supportive Team
               </h3>
-              <p className="text-gray-600">
+              <p className="text-brand-textSecondary">
                 Work with experienced professionals who care
               </p>
             </div>
@@ -305,65 +319,65 @@ export default function CaregiversPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-brand-background">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-brand-text mb-6">
                 Competitive Benefits Package
               </h2>
               <div className="space-y-4">
                 <div className="flex items-start">
-                  <CheckCircle className="h-6 w-6 text-green-500 mt-1 mr-3 flex-shrink-0" />
+                  <CheckCircle className="h-6 w-6 text-brand-secondary mt-1 mr-3 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold text-gray-900">
-                      Competitive Hourly Rates
+                    <h3 className="font-semibold text-brand-text">
+                      Competitive Compensation
                     </h3>
-                    <p className="text-gray-600">
-                      Starting from $18-25/hour based on experience
+                    <p className="text-brand-textSecondary">
+                      Attractive rates based on experience and qualifications
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <CheckCircle className="h-6 w-6 text-green-500 mt-1 mr-3 flex-shrink-0" />
+                  <CheckCircle className="h-6 w-6 text-brand-secondary mt-1 mr-3 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold text-gray-900">
+                    <h3 className="font-semibold text-brand-text">
                       Health Benefits
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-brand-textSecondary">
                       Medical, dental, and vision coverage available
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <CheckCircle className="h-6 w-6 text-green-500 mt-1 mr-3 flex-shrink-0" />
+                  <CheckCircle className="h-6 w-6 text-brand-secondary mt-1 mr-3 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold text-gray-900">
+                    <h3 className="font-semibold text-brand-text">
                       Paid Training
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-brand-textSecondary">
                       Comprehensive training program with ongoing education
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <CheckCircle className="h-6 w-6 text-green-500 mt-1 mr-3 flex-shrink-0" />
+                  <CheckCircle className="h-6 w-6 text-brand-secondary mt-1 mr-3 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold text-gray-900">
+                    <h3 className="font-semibold text-brand-text">
                       Flexible Scheduling
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-brand-textSecondary">
                       Part-time and full-time positions available
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <CheckCircle className="h-6 w-6 text-green-500 mt-1 mr-3 flex-shrink-0" />
+                  <CheckCircle className="h-6 w-6 text-brand-secondary mt-1 mr-3 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold text-gray-900">
+                    <h3 className="font-semibold text-brand-text">
                       Career Growth
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-brand-textSecondary">
                       Opportunities for advancement and specialization
                     </p>
                   </div>
@@ -372,20 +386,20 @@ export default function CaregiversPage() {
             </div>
             <div className="bg-white rounded-lg shadow-lg p-8">
               <div className="text-center mb-6">
-                <Star className="h-12 w-12 text-yellow-500 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-gray-900">
+                <Star className="h-12 w-12 text-brand-highlight mx-auto mb-4" />
+                <h3 className="text-2xl font-bold text-brand-text">
                   What Our Caregivers Say
                 </h3>
               </div>
-              <blockquote className="text-gray-600 italic mb-4">
+              <blockquote className="text-brand-textSecondary italic mb-4">
                 "Working here has been incredibly rewarding. The support from
                 management and the flexibility to choose my schedule has made
                 this the best job I've ever had. I truly feel like I'm making a
                 difference in my clients' lives."
               </blockquote>
               <div className="text-center">
-                <p className="font-semibold text-gray-900">Sarah M.</p>
-                <p className="text-sm text-gray-500">
+                <p className="font-semibold text-brand-text">Sarah M.</p>
+                <p className="text-sm text-brand-textSecondary">
                   Personal Support Worker, 3 years
                 </p>
               </div>
@@ -398,10 +412,10 @@ export default function CaregiversPage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-brand-text mb-4">
               Requirements & Qualifications
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-brand-textSecondary">
               We welcome both experienced caregivers and those new to the field
             </p>
           </div>
@@ -409,29 +423,29 @@ export default function CaregiversPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <Card>
               <CardHeader>
-                <CardTitle className="text-green-600">
+                <CardTitle className="text-brand-secondary">
                   Preferred Qualifications
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
+                  <CheckCircle className="h-5 w-5 text-brand-secondary mr-2" />
                   <span>PSW (Personal Support Worker) certification</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
+                  <CheckCircle className="h-5 w-5 text-brand-secondary mr-2" />
                   <span>Previous caregiving experience</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
+                  <CheckCircle className="h-5 w-5 text-brand-secondary mr-2" />
                   <span>First Aid & CPR certification</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
+                  <CheckCircle className="h-5 w-5 text-brand-secondary mr-2" />
                   <span>Valid driver's license</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
+                  <CheckCircle className="h-5 w-5 text-brand-secondary mr-2" />
                   <span>Multilingual abilities</span>
                 </div>
               </CardContent>
@@ -439,29 +453,29 @@ export default function CaregiversPage() {
 
             <Card>
               <CardHeader>
-                <CardTitle className="text-blue-600">
+                <CardTitle className="text-brand-primary">
                   Essential Requirements
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-blue-500 mr-2" />
+                  <CheckCircle className="h-5 w-5 text-brand-primary mr-2" />
                   <span>Compassionate and patient personality</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-blue-500 mr-2" />
+                  <CheckCircle className="h-5 w-5 text-brand-primary mr-2" />
                   <span>Reliable and punctual</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-blue-500 mr-2" />
+                  <CheckCircle className="h-5 w-5 text-brand-primary mr-2" />
                   <span>Clear background check</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-blue-500 mr-2" />
+                  <CheckCircle className="h-5 w-5 text-brand-primary mr-2" />
                   <span>Physical ability to assist clients</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-blue-500 mr-2" />
+                  <CheckCircle className="h-5 w-5 text-brand-primary mr-2" />
                   <span>Strong communication skills</span>
                 </div>
               </CardContent>
@@ -472,14 +486,17 @@ export default function CaregiversPage() {
 
       {/* Application Form */}
       {showForm && (
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <section
+          id="application-form"
+          className="py-16 px-4 sm:px-6 lg:px-8 bg-brand-background"
+        >
           <div className="max-w-4xl mx-auto">
             <Card>
               <CardHeader>
-                <CardTitle className="text-2xl text-center">
+                <CardTitle className="text-2xl text-center text-brand-text">
                   Caregiver Application
                 </CardTitle>
-                <CardDescription className="text-center">
+                <CardDescription className="text-center text-brand-textSecondary">
                   Please fill out all required fields to submit your application
                 </CardDescription>
               </CardHeader>
@@ -806,13 +823,14 @@ export default function CaregiversPage() {
                       type="button"
                       variant="outline"
                       onClick={() => setShowForm(false)}
+                      className="border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white"
                     >
                       Cancel
                     </Button>
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className="bg-blue-600 hover:bg-blue-700"
+                      className="bg-brand-primary hover:bg-brand-primary/90"
                     >
                       {isSubmitting ? "Submitting..." : "Submit Application"}
                     </Button>
@@ -824,35 +842,201 @@ export default function CaregiversPage() {
         </section>
       )}
 
-      {/* Contact Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-blue-600 text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Ready to Start Your Caregiving Career?
-          </h2>
-          <p className="text-xl mb-8 opacity-90">
-            Join our team of dedicated professionals making a difference in
-            people's lives every day.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3"
-              onClick={() => setShowForm(true)}
-            >
-              Apply Now <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3 bg-transparent"
-              asChild
-            >
-              <a href="mailto:careers@homecare.com">
-                <Mail className="mr-2 h-5 w-5" />
-                careers@homecare.com
-              </a>
-            </Button>
+      {/* CTA Section */}
+      <section className="relative py-24 bg-gradient-to-b from-brand-background to-brand-primary">
+        <div className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">
+          {/* Centered CTA Card */}
+          <div className="max-w-4xl mx-auto">
+            <Card className="bg-white shadow-2xl border-0">
+              <CardContent className="p-12 text-center">
+                <h2 className="text-4xl md:text-5xl font-extrabold text-brand-text mb-6">
+                  Ready to Start Your Caregiving Career?
+                </h2>
+                <p className="text-xl text-brand-textSecondary mb-10 max-w-3xl mx-auto">
+                  Join our team of dedicated professionals making a difference
+                  in people's lives every day.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+                  <Button
+                    size="lg"
+                    className="bg-brand-primary text-white hover:bg-brand-primary/90 px-8 py-3 font-bold rounded-full shadow-xl hover:shadow-2xl transform hover:scale-[1.03] transition-all duration-200"
+                    onClick={() => {
+                      setShowForm(true);
+                      setTimeout(() => {
+                        document
+                          .getElementById("application-form")
+                          ?.scrollIntoView({ behavior: "smooth" });
+                      }, 100);
+                    }}
+                  >
+                    Apply Now
+                    <span className="inline-block animate-bounce ml-2">
+                      <ArrowRight className="h-6 w-6" />
+                    </span>
+                  </Button>
+                  <a
+                    href="mailto:careers@havenathome.com"
+                    className="inline-block"
+                  >
+                    <div className="border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white bg-transparent font-bold py-5 px-12 rounded-full shadow-xl hover:shadow-2xl transform hover:scale-[1.03] transition-all duration-200 cursor-pointer flex items-center justify-center text-lg md:text-xl">
+                      <Mail className="h-6 w-6 mr-2" />
+                      careers@havenathome.com
+                    </div>
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Gradient Footer Section */}
+      <section className="bg-gradient-to-b from-brand-primary via-brand-primary/95 to-brand-primary/90 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="grid md:grid-cols-4 gap-8">
+            {/* Company Info */}
+            <div className="space-y-4">
+              <h3 className="text-xl font-bold text-white">Haven at Home</h3>
+              <p className="text-white/80">
+                Providing compassionate, professional home care services
+                throughout Toronto and the GTA.
+              </p>
+              <div className="flex space-x-4">
+                <Facebook className="h-5 w-5 text-white/60 hover:text-white cursor-pointer" />
+                <Twitter className="h-5 w-5 text-white/60 hover:text-white cursor-pointer" />
+                <Instagram className="h-5 w-5 text-white/60 hover:text-white cursor-pointer" />
+                <Linkedin className="h-5 w-5 text-white/60 hover:text-white cursor-pointer" />
+              </div>
+            </div>
+
+            {/* Services */}
+            <div>
+              <h4 className="text-lg font-semibold mb-4 text-white">
+                Services
+              </h4>
+              <ul className="space-y-2">
+                <li>
+                  <Link
+                    href="/services/personal-support"
+                    className="text-white/80 hover:text-white transition-colors"
+                  >
+                    Personal Support
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/services/in-home-nursing"
+                    className="text-white/80 hover:text-white transition-colors"
+                  >
+                    In-Home Nursing
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/services/rehabilitation"
+                    className="text-white/80 hover:text-white transition-colors"
+                  >
+                    Rehabilitation
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/services/specialty-chronic-care"
+                    className="text-white/80 hover:text-white transition-colors"
+                  >
+                    Specialty Care
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Company */}
+            <div>
+              <h4 className="text-lg font-semibold mb-4 text-white">Company</h4>
+              <ul className="space-y-2">
+                <li>
+                  <Link
+                    href="/about"
+                    className="text-white/80 hover:text-white transition-colors"
+                  >
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/caregivers"
+                    className="text-white/80 hover:text-white transition-colors"
+                  >
+                    Join Our Team
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/partners"
+                    className="text-white/80 hover:text-white transition-colors"
+                  >
+                    Partner With Us
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/faqs"
+                    className="text-white/80 hover:text-white transition-colors"
+                  >
+                    FAQs
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/policies"
+                    className="text-white/80 hover:text-white transition-colors"
+                  >
+                    Policies
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Contact */}
+            <div>
+              <h4 className="text-lg font-semibold mb-4 text-white">Contact</h4>
+              <div className="space-y-3">
+                <div className="flex items-center">
+                  <Phone className="h-4 w-4 mr-2 text-white" />
+                  <span className="text-white/80">(416) 555-2273</span>
+                </div>
+                <div className="flex items-center">
+                  <Mail className="h-4 w-4 mr-2 text-white" />
+                  <a
+                    href="mailto:info@havenathome.com"
+                    className="text-white/80 hover:underline"
+                  >
+                    info@havenathome.com
+                  </a>
+                </div>
+                <div className="flex items-start">
+                  <MapPin className="h-4 w-4 mr-2 text-white mt-1" />
+                  <span className="text-white/80">
+                    123 Main Street
+                    <br />
+                    Toronto, ON M5V 3A8
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="border-t border-white/20 mt-8 pt-8 text-center">
+            <p className="text-white/60">
+              © 2024 Haven at Home. All rights reserved. |
+              <Link href="/policies" className="hover:text-white ml-1">
+                Privacy Policy
+              </Link>{" "}
+              |
+              <Link href="/policies" className="hover:text-white ml-1">
+                Terms of Service
+              </Link>
+            </p>
           </div>
         </div>
       </section>

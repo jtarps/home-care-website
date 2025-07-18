@@ -13,6 +13,31 @@ const config: Config = {
   theme: {
   	extend: {
   		colors: {
+  			// Brand Colors for Haven at Home - Premium Warm Palette
+  			brand: {
+  				primary: '#F27D72',           // CTA Button Background
+  				primaryHover: '#D96760',      // CTA Button Hover
+  				secondary: '#9DBEA9',         // Secondary Accent (calm)
+  				background: '#F8F6F2',        // Page Background
+  				sectionBg: '#EFEAE5',         // Section Background
+  				highlight: '#F2B5A3',         // Soft Accent Highlight
+  				text: '#2C2C2C',              // Primary Text (softer black)
+  				textSecondary: '#8C8C8C',     // Secondary Text
+  				body: '#F8F6F2',              // Body Background
+  				pillBg: '#E3EAF4',            // Pill Badge Background
+  				pillText: '#3D4A68',          // Pill Badge Text
+  			},
+  			// Semantic color names for consistent usage
+  			primary: '#F27D72',
+  			'accent': '#9DBEA9',
+  			'muted': '#EFEAE5',
+  			'bg': '#F8F6F2',
+  			'text': '#2C2C2C',
+  			'text-secondary': '#8C8C8C',
+  			'card-1': '#F27D72',    // Personal Support
+  			'card-2': '#9DBEA9',    // In-Home Nursing
+  			'card-3': '#F2B5A3',    // Rehabilitation
+  			'card-4': '#A3B18A',    // Specialty Care
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
@@ -85,11 +110,20 @@ const config: Config = {
   				to: {
   					height: '0'
   				}
+  			},
+  			'marquee': {
+  				'0%': {
+  					transform: 'translateX(100%)'
+  				},
+  				'100%': {
+  					transform: 'translateX(-100%)'
+  				}
   			}
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
-  			'accordion-up': 'accordion-up 0.2s ease-out'
+  			'accordion-up': 'accordion-up 0.2s ease-out',
+  			'marquee': 'marquee 20s linear infinite'
   		}
   	}
   },
